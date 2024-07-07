@@ -4,7 +4,7 @@ import { ClosedEyeIcon, OpenEyeIcon } from "../../svg";
 type InputProps = {
   icon?: React.ComponentType;
   placeholder: string;
-  type: "text" | "password" | "select";
+  type: "text" | "password";
   label?: string;
 };
 

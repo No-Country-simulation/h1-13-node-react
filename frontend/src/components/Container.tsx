@@ -21,7 +21,7 @@ export const Container: React.FC<Props> = ({ children }) => {
                    lg:px-[42px]
                    bg-white
                    lg:rounded-[30px]
-                   shadow-md"
+                   lg:shadow-md"
       >
         <div className="h-max w-full pb-[40px]">{children}</div>
       </div>
