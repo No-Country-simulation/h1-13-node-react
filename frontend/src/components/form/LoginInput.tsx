@@ -2,6 +2,9 @@ import { useState } from "react";
 import { ClosedEyeIcon, OpenEyeIcon } from "../../svg";
 
 type InputProps = {
+  name: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
   icon?: React.ComponentType;
   placeholder: string;
   type: "text" | "password";
@@ -9,6 +12,9 @@ type InputProps = {
 };
 
 export const LoginInput: React.FC<InputProps> = ({
+  name,
+  handleChange,
+  value,
   icon: Icon,
   placeholder,
   type,
@@ -53,6 +59,9 @@ export const LoginInput: React.FC<InputProps> = ({
           </div>
         )}
         <input
+        name={name}
+          value={value}
+          onChange={handleChange}
           type={inputType}
           className={`h-full w-full
                       text-sm
