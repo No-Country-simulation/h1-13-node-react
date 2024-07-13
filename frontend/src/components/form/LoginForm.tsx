@@ -12,8 +12,8 @@ export const LoginForm = () => {
       password: '',
     },
     validationSchema: Yup.object({
-      user: Yup.string().required('No ingresó su usuario, por favor ingrese su usuario'),
-      password: Yup.string().required('No ingresó su contraseña, por favor ingrese su contraseña'),
+      user: Yup.string().required('No ha ingresado su usuario, por favor ingrese su usuario'),
+      password: Yup.string().required('No ha ingresado su contraseña, por favor ingrese su contraseña'),
     }),
     onSubmit: async (values) => {
       try {
