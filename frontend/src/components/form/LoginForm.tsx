@@ -1,13 +1,46 @@
+
 import { LockIcon, UserIcon } from "../../svg";
 import { LoginInput } from "./LoginInput";
+import { useFormik } from "formik";
+import * as Yup from 'yup';
 
-export const LoginForm = () => {
+export const LoginForm = () => { 
+
+  const formik = useFormik({
+    initialValues: {
+      user: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      user: Yup.string().required('No ha ingresado su usuario, por favor ingrese su usuario'),
+      password: Yup.string().required('No ha ingresado su contraseña, por favor ingrese su contraseña'),
+    }),
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+        const data = await response.json();
+        console.log('Success:', data);
+        // Manejar el éxito de la solicitud
+      } catch (error) {
+        console.error('Error:', error);
+        // Manejar el error de la solicitud
+      }
+    },
+  });
+
   return (
     <form
       className="w-full
                  mt-[117px]
                  lg:mt-[52px]
                  max-w-[525px]"
+      onSubmit={formik.handleSubmit}
     >
       <div
         className="w-full flex
@@ -15,12 +48,28 @@ export const LoginForm = () => {
                    lg:gap-y-[13px]
                    items-end"
       >
-        <LoginInput type={"text"} icon={UserIcon} placeholder="Usuario" />
+        <LoginInput 
+          handleChange={formik.handleChange} 
+          name="user" 
+          value={formik.values.user} 
+          type={"text"} 
+          icon={UserIcon} 
+          placeholder="Usuario"
+        />
+        {formik.touched.user && formik.errors.user ? (
+          <div className="text-red-500">{formik.errors.user}</div>
+        ) : null}
         <LoginInput
+          handleChange={formik.handleChange}
+          name="password"
+          value={formik.values.password}
           type={"password"}
           icon={LockIcon}
           placeholder="Contraseña"
         />
+        {formik.touched.password && formik.errors.password ? (
+          <div className="text-red-500">{formik.errors.password}</div>
+        ) : null}
       </div>
       <div
         className="flex relative
