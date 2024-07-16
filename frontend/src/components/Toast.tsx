@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { ToastStatus } from "../enums/Toast.enum";
-import { useAuthStore } from "../store/auth.store";
 import { AlertLogo, BanLogo, CheckLogo, CloseLogo } from "../svg";
 import { capitalizeWords } from "../utils/stringUtils";
+import { useToastStore } from "../store/toast.store";
 
 export const Toast = () => {
-  const toastMessage = useAuthStore((state) => state.toastMessage);
-  const toastStatus = useAuthStore((state) => state.toastStatus);
-  const isToastShowing = useAuthStore((state) => state.isToastShowing);
-  const hideToast = useAuthStore((state) => state.hideToast);
+  const toastMessage = useToastStore((state) => state.toastMessage);
+  const toastStatus = useToastStore((state) => state.toastStatus);
+  const isToastShowing = useToastStore((state) => state.isToastShowing);
+  const hideToast = useToastStore((state) => state.hideToast);
 
   useEffect(() => {
     if (isToastShowing) {

@@ -9,9 +9,14 @@ export const SignUpForm = () => {
   return (
     <form className="mt-[27px] lg:mt-[38px]" onSubmit={formik.handleSubmit}>
       <div
-        className="grid grid-cols-2
+        className={`grid grid-cols-2
                    gap-x-2 gap-y-3
-                   lg:gap-x-4"
+                   ${
+                     Object.keys(formik.errors).length
+                       ? `lg:gap-y-5`
+                       : `lg:gap-y-3`
+                   }
+                   lg:gap-x-4`}
       >
         <div className="col-span-2 lg:col-span-1">
           <Input
@@ -71,10 +76,39 @@ export const SignUpForm = () => {
           }
         />
         <div className="col-span-2 lg:col-span-1">
-          <Select label={"Especialidad"} />
+          <Select
+            name={formik.values.specialty}
+            handleChange={formik.handleChange}
+            value={formik.values.specialty}
+            label={"Especialidad"}
+            options={[
+              { value: "", label: "Seleccione su especialidad" },
+              { value: "Médico", label: "Médico" },
+            ]}
+            errorMessage={
+              formik.touched.specialty && formik.errors.specialty
+                ? formik.errors.specialty
+                : null
+            }
+          />
         </div>
         <div className="col-span-2 lg:col-span-1">
-          <Select label={"Estado civil"} />
+          <Select
+            name={"maritalStatus"}
+            handleChange={formik.handleChange}
+            value={formik.values.maritalStatus}
+            label={"Estado civil"}
+            options={[
+              { value: "", label: "Seleccione su estado civil" },
+              { value: "soltero", label: "Soltero/a" },
+              { value: "casado", label: "Casado/a" },
+            ]}
+            errorMessage={
+              formik.touched.maritalStatus && formik.errors.maritalStatus
+                ? formik.errors.maritalStatus
+                : null
+            }
+          />
         </div>
         <div className="col-span-2 lg:col-span-1">
           <Input
@@ -137,12 +171,17 @@ export const SignUpForm = () => {
           />
         </div>
         <div
-          className="col-span-2 grid
+          className={`col-span-2 grid
                      grid-cols-2
                      gap-x-4
                      gap-y-4
                      mt-[23px]
-                     lg:mt-[42px]"
+                     lg:mt-[42px]
+                     ${
+                       Object.keys(formik.errors).length
+                         ? `lg:mt-[24px]`
+                         : `lg:mt-[42px]`
+                     }`}
         >
           <div
             className="col-span-2

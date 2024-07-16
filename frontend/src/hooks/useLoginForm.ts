@@ -1,18 +1,19 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/auth.store";
 import { login } from "../utils/APIUtils";
 import { ACCESS_TOKEN } from "../constants";
 import { ToastStatus } from "../enums/Toast.enum";
+import { useToastStore } from "../store/toast.store";
+import { useLoaderStore } from "../store/loader.store";
 
 export const useLoginForm = () => {
 
   const navigate = useNavigate();
 
-  const showLoader = useAuthStore((state) => state.showLoader);
-  const hideLoader = useAuthStore((state) => state.hideLoader);
-  const showToast = useAuthStore((state) => state.showToast)
+  const showLoader = useLoaderStore((state) => state.showLoader);
+  const hideLoader = useLoaderStore((state) => state.hideLoader);
+  const showToast = useToastStore((state) => state.showToast)
 
   const formik = useFormik({
     initialValues: {

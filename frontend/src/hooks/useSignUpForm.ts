@@ -1,16 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/auth.store";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastStatus } from "../enums/Toast.enum";
+import { signup } from "../utils/APIUtils";
+import { useToastStore } from "../store/toast.store";
+import { useLoaderStore } from "../store/loader.store";
 
 export const useSignUpForm = () => {
 
     const navigate = useNavigate();
 
-    const showLoader = useAuthStore((state) => state.showLoader);
-    const hideLoader = useAuthStore((state) => state.hideLoader);
-    const showToast = useAuthStore((state) => state.showToast);
+    const showLoader = useLoaderStore((state) => state.showLoader);
+    const hideLoader = useLoaderStore((state) => state.hideLoader);
+    const showToast = useToastStore((state) => state.showToast);
+
+    const requiredString = Yup.string().required("Debe completar este campo.");
+    const requiredEmail = Yup.string().email("Debe ser un email válido.").required("Debe completar este campo.");
+    const requiredOption = Yup.string().required("Debe elegir una opción.");
 
     const formik = useFormik({
         initialValues: {
@@ -26,30 +32,16 @@ export const useSignUpForm = () => {
             confirmPassword: ""
         },
         validationSchema: Yup.object({
-            firstName: Yup.string().required(
-                "No ha ingresado su nombre, por favor ingréselo"
-            ),
-            lastName: Yup.string().required(
-                "No ha ingresado su apellido, por favor ingréselo"
-            ),
-            phoneNumber: Yup.string().required(
-                "No ha ingresado su teléfono, por favor ingréselo"
-            ),
-            registrationNumber: Yup.string().required(
-                "No ha ingresado su número de Matrícula, por favor ingrésela"
-            ),
-            email: Yup.string().required(
-                "No ha ingresado su E-mail, por favor ingréselo"
-            ),
-            confirmEmail: Yup.string().required(
-                "Debe confirmar su email."
-            ),
-            password: Yup.string().required(
-                "No ha ingresado su contraseña, por favor ingrésela"
-            ),
-            confirmPassword: Yup.string().required(
-                "Debe confirmar su contraseña."
-            ),
+            firstName: requiredString,
+            lastName: requiredString,
+            phoneNumber: requiredString,
+            registrationNumber: requiredString,
+            specialty: requiredOption,
+            maritalStatus: requiredOption,
+            email: requiredEmail,
+            confirmEmail: requiredEmail,
+            password: requiredString,
+            confirmPassword: requiredString,
         }),
         onSubmit: async (values) => {
             try {
@@ -70,12 +62,12 @@ export const useSignUpForm = () => {
                     lastName: values.lastName,
                     phoneNumber: values.phoneNumber,
                     registrationNumber: values.registrationNumber,
-                    specialty: "Médico",
-                    maritalStatus: "Casado",
+                    specialty: values.specialty,
+                    maritalStatus: values.maritalStatus,
                     email: values.email,
                     password: values.password,
                 }
-                await signUp(requestObject);
+                await signup(requestObject);
 
                 hideLoader();
                 showToast("Te has registrado exitosamente. Por favor, inicia sesión para continuar.", ToastStatus.success);
@@ -94,7 +86,3 @@ export const useSignUpForm = () => {
         formik
     };
 };
-
-function signUp(requestObject: { firstName: string; lastName: string; phoneNumber: string; registrationNumber: string; specialty: string; maritalStatus: string; email: string; password: string; }) {
-    throw new Error("Function not implemented.");
-}
