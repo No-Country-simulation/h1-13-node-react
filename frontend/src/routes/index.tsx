@@ -4,6 +4,7 @@ import SignUpPage from "../pages/SignUpPage";
 import RecoveryPasswordPage from "../pages/RecoveryPasswordPage";
 import { PublicLayout } from "../components/layout/PublicLayout";
 import { PrivateLayout } from "../components/layout/PrivateLayout";
+import HomePage from "../pages/HomePage";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path:"/",
-        element: <h1>Home</h1>
+        element: <HomePage />
 
       }
     ]

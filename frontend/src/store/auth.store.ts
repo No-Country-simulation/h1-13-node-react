@@ -9,7 +9,7 @@ interface AuthStateI {
 
 export const useAuthStore = create<AuthStateI>()((set) => ({
     loading: false,
-    token: undefined,
+    token: "weewew",
 
     login: () => {
         set({
