@@ -1,12 +1,6 @@
 import { Container, LoginForm } from "../components";
-import { useAuthStore } from "../store/auth.store";
 
 const LoginPage = () => {
-
-  const loading = useAuthStore((state) => state.loading);
-
-  if(loading) return <h1>Loading...</h1>;
-
   return (
     <Container>
       <div

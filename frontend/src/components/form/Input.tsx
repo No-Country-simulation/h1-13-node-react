@@ -2,17 +2,25 @@ import { useState } from "react";
 import { ClosedEyeIcon, OpenEyeIcon } from "../../svg";
 
 type InputProps = {
+  name: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
   icon?: React.ComponentType;
   placeholder: string;
   type: "text" | "password";
   label?: string;
+  errorMessage: string | null;
 };
 
 export const Input: React.FC<InputProps> = ({
+  name,
+  handleChange,
+  value,
   icon: Icon,
   placeholder,
   type,
   label,
+  errorMessage,
 }) => {
   const [isPasswordVisible, setisPasswordVisible] = useState(false);
 
@@ -21,17 +29,18 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div
       className="w-full flex
-                 flex-col"
+                 flex-col
+                 relative"
     >
       {label && (
         <label
-          className="mb-[1px]
+          className={`mb-[1px]
                      lg:mb-1
                      pl-1
                      text-xs
                      lg:text-base
                      font-[600]
-                     text-pinkDark"
+                     ${errorMessage ? `text-red` : `text-pinkDark`}`}
         >
           {label}
         </label>
@@ -53,11 +62,14 @@ export const Input: React.FC<InputProps> = ({
           </div>
         )}
         <input
+          name={name}
+          value={value}
+          onChange={handleChange}
           type={inputType}
           className={`h-full w-full
                       text-sm
                       text-greyDarkText
-                      border-pinkLight
+                      ${errorMessage ? `border-red` : `border-pinkLight`}
                       bg-transparent
                       border-2 rounded-lg
                       font-normal
@@ -87,6 +99,21 @@ export const Input: React.FC<InputProps> = ({
           </div>
         )}
       </div>
+      {errorMessage && (
+        <div
+          className="w-full
+                     text-red
+                     text-xs h-6
+                     py-1
+                     translate-x-2
+                     leading-4
+                     font-[500]
+                     lg:absolute
+                     lg:-bottom-[20px]"
+        >
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,20 +1,20 @@
 import { create } from "zustand";
 
 interface AuthStateI {
-    loading: boolean;
     token?: string;
-    login: () => void;
+    setToken: (token: string) => void;
 }
 
-
 export const useAuthStore = create<AuthStateI>()((set) => ({
-    loading: false,
-    token: "weewew",
 
-    login: () => {
+    loading: false,
+
+    token: undefined,
+
+
+    setToken: () => (token: string) => {
         set({
-            loading: false,
-            token: undefined
+            token: token
         });
-    },
+    }
 }));

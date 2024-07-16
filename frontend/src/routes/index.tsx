@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import RecoveryPasswordPage from "../pages/RecoveryPasswordPage";
-import { PublicLayout } from "../components/layout/PublicLayout";
-import { PrivateLayout } from "../components/layout/PrivateLayout";
+
 import HomePage from "../pages/HomePage";
+
+import { PrivateLayout, PublicLayout } from "../components";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
         path: "/recoveryPassword",
         element: <RecoveryPasswordPage />,
       },
-    ]
+    ],
   },
   {
     path: "/",
