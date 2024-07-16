@@ -5,3 +5,7 @@ export * from "./OpenEyeIcon";
 export * from "./ClosedEyeIcon";
 export * from "./RecoveryIcon";
 export * from "./ArrowIcon";
+export * from "./CloseLogo";
+export * from "./BanLogo";
+export * from "./AlertLogo";
+export * from "./CheckLogo";
