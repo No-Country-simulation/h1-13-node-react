@@ -96,8 +96,7 @@ it helps to keep track of medical history, and follow up treatment adherence.
     <li><a href="https://expressjs.com/">Express.js</a></li>
     <li><a href="https://www.prisma.io/">Prisma</a></li>
     <li><a href="https://expressjs.com/">Bcrypt.js</a></li>
-    <li><a href="https://github.com/motdotla/dotenv#readme">Dotenv
-</a></li>
+    <li><a href="https://github.com/motdotla/dotenv#readme">Dotenv</a></li>
     <li><a href="https://github.com/evanshortiss/env-var#env-var"><a>Env-var</li>
     <li><a href="https://github.com/auth0/node-jsonwebtoken#readme">Jsonwebtoken</a></li>
   </ul>
