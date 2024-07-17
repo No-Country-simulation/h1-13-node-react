@@ -113,11 +113,10 @@ it helps to keep track of medical history, and follow up treatment adherence.
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> Key feature Implemented in this project:
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Patient Dashboard**
+- **Patient Appointment Schedule**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
