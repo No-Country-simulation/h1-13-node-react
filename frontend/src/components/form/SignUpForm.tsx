@@ -1,5 +1,10 @@
 import { useSignUpForm } from "../../hooks/useSignUpForm";
 import { ArrowIcon, NewUserIcon } from "../../svg";
+import {
+  signupInputFields,
+  signupSelectFields,
+} from "../../utils/formFieldsUtils";
+import { ActionButton } from "./ActionButton";
 import { Input } from "./Input";
 import { Select } from "./Select";
 
@@ -18,158 +23,59 @@ export const SignUpForm = () => {
                    }
                    lg:gap-x-4`}
       >
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="firstName"
-            value={formik.values.firstName}
-            handleChange={formik.handleChange}
-            label={"Nombre"}
-            type={"text"}
-            placeholder="ej: John"
-            errorMessage={
-              formik.touched.firstName && formik.errors.firstName
-                ? formik.errors.firstName
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="lastName"
-            value={formik.values.lastName}
-            handleChange={formik.handleChange}
-            label={"Apellido"}
-            type={"text"}
-            placeholder="ej: Doe"
-            errorMessage={
-              formik.touched.lastName && formik.errors.lastName
-                ? formik.errors.lastName
-                : null
-            }
-          />
-        </div>
-        <Input
-          name="phoneNumber"
-          value={formik.values.phoneNumber}
-          handleChange={formik.handleChange}
-          label={"Teléfono"}
-          type={"text"}
-          placeholder="ej: 446789"
-          errorMessage={
-            formik.touched.phoneNumber && formik.errors.phoneNumber
-              ? formik.errors.phoneNumber
-              : null
-          }
-        />
-        <Input
-          name="registrationNumber"
-          value={formik.values.registrationNumber}
-          handleChange={formik.handleChange}
-          label={"Nº Matrícula"}
-          type={"text"}
-          placeholder="ej: 123456789"
-          errorMessage={
-            formik.touched.registrationNumber &&
-            formik.errors.registrationNumber
-              ? formik.errors.registrationNumber
-              : null
-          }
-        />
-        <div className="col-span-2 lg:col-span-1">
-          <Select
-            name={formik.values.specialty}
-            handleChange={formik.handleChange}
-            value={formik.values.specialty}
-            label={"Especialidad"}
-            options={[
-              { value: "", label: "Seleccione su especialidad" },
-              { value: "Médico", label: "Médico" },
-            ]}
-            errorMessage={
-              formik.touched.specialty && formik.errors.specialty
-                ? formik.errors.specialty
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Select
-            name={"maritalStatus"}
-            handleChange={formik.handleChange}
-            value={formik.values.maritalStatus}
-            label={"Estado civil"}
-            options={[
-              { value: "", label: "Seleccione su estado civil" },
-              { value: "soltero", label: "Soltero/a" },
-              { value: "casado", label: "Casado/a" },
-            ]}
-            errorMessage={
-              formik.touched.maritalStatus && formik.errors.maritalStatus
-                ? formik.errors.maritalStatus
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="email"
-            value={formik.values.email}
-            handleChange={formik.handleChange}
-            label={"E-mail"}
-            type={"text"}
-            placeholder="ej: johndoe@gmail.com"
-            errorMessage={
-              formik.touched.email && formik.errors.email
-                ? formik.errors.email
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="confirmEmail"
-            value={formik.values.confirmEmail}
-            handleChange={formik.handleChange}
-            label={"Confirmar E-mail"}
-            type={"text"}
-            placeholder="ej: johndoe@gmail.com"
-            errorMessage={
-              formik.touched.confirmEmail && formik.errors.confirmEmail
-                ? formik.errors.confirmEmail
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="password"
-            value={formik.values.password}
-            handleChange={formik.handleChange}
-            label={"Contraseña"}
-            type={"password"}
-            placeholder=""
-            errorMessage={
-              formik.touched.password && formik.errors.password
-                ? formik.errors.password
-                : null
-            }
-          />
-        </div>
-        <div className="col-span-2 lg:col-span-1">
-          <Input
-            name="confirmPassword"
-            value={formik.values.confirmPassword}
-            handleChange={formik.handleChange}
-            label={"Confirmar contraseña"}
-            type={"password"}
-            placeholder=""
-            errorMessage={
-              formik.touched.confirmPassword && formik.errors.confirmPassword
-                ? formik.errors.confirmPassword
-                : null
-            }
-          />
-        </div>
+        {signupInputFields.slice(0, 4).map((field) => (
+          <div key={field.name} className={field.colSpan}>
+            <Input
+              name={field.name}
+              value={formik.values[field.name]}
+              handleChange={formik.handleChange}
+              label={field.label}
+              type={field.type}
+              placeholder={field.placeholder}
+              errorMessage={
+                formik.touched[field.name] && formik.errors[field.name]
+                  ? formik.errors[field.name] ?? null
+                  : null
+              }
+            />
+          </div>
+        ))}
+
+        {signupSelectFields.map((field) => (
+          <div key={field.name} className={field.colSpan}>
+            <Select
+              name={field.name}
+              handleChange={formik.handleChange}
+              value={formik.values[field.name]}
+              label={field.label}
+              options={field.options}
+              errorMessage={
+                formik.touched[field.name] && formik.errors[field.name]
+                  ? formik.errors[field.name] ?? null
+                  : null
+              }
+            />
+          </div>
+        ))}
+
+        {signupInputFields.slice(4, 8).map((field) => (
+          <div key={field.name} className={field.colSpan}>
+            <Input
+              name={field.name}
+              value={formik.values[field.name]}
+              handleChange={formik.handleChange}
+              label={field.label}
+              type={field.type}
+              placeholder={field.placeholder}
+              errorMessage={
+                formik.touched[field.name] && formik.errors[field.name]
+                  ? formik.errors[field.name] ?? null
+                  : null
+              }
+            />
+          </div>
+        ))}
+
         <div
           className={`col-span-2 grid
                      grid-cols-2
@@ -189,26 +95,12 @@ export const SignUpForm = () => {
                        lg:order-2
                        order-1"
           >
-            <button
-              className="w-full h-[43px]
-                         bg-pinkDark
-                         text-white
-                         text-base
-                         rounded-lg
-                         hover:bg-pinkDarkHover
-                         duration-300
-                         ease-in-out"
-              type="submit"
-            >
-              <div
-                className="w-full h-full flex
-                           justify-center
-                           items-center gap-x-2"
-              >
-                <NewUserIcon />
-                <span>Registrarse</span>
-              </div>
-            </button>
+            <ActionButton
+              type={"submit"}
+              value={"Registrarse"}
+              style={"pink"}
+              icon={NewUserIcon}
+            />
           </div>
           <div
             className="col-span-2
@@ -217,27 +109,12 @@ export const SignUpForm = () => {
                        order-2
                        lg:flex"
           >
-            <a
-              href="/login"
-              className="w-full h-[43px]
-                         bg-greyButton
-                         text-greyDarkText
-                         text-base
-                         font-[600]
-                         rounded-lg
-                         hover:bg-greyButtonHover
-                         duration-300
-                         ease-in-out
-                         flex
-                         justify-center
-                         items-center
-                         gap-x-2"
-              aria-label="Volver al inicio de sesión"
-              title="Volver al inicio de sesión"
-            >
-              <ArrowIcon />
-              <span>Atrás</span>
-            </a>
+            <ActionButton
+              href={"/login"}
+              value={"Atrás"}
+              style={"grey"}
+              icon={ArrowIcon}
+            />
           </div>
         </div>
       </div>
