@@ -124,7 +124,7 @@ it helps to keep track of medical history, and follow up treatment adherence.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Live demo will be ready to be used soon!
 
 - [Live Demo Link](https://google.com)
 
