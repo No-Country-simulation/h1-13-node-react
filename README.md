@@ -218,6 +218,13 @@ Example:
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
+👤 **Diego Vidal**
+
+- GitHub: [@Diegogagan2587](https://github.com/Diegogagan2587)
+- X (Former Twitter): [@dieg02587](https://x.com/dieg02587)
+- LinkedIn: [Diego Vidal](https://www.linkedin.com/in/diego-vidal-lopez/)
+- Portfolio: [dvloper-z.com](https://dvloper-z.com/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
