@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react';
-import SearchIcon from '../assets/magnifying-glass.png'; // Asegúrate de tener este ícono o usa uno similar
+import SearchIcon from '../assets/loop.png'; // Asegúrate de tener este ícono o usa uno similar
 import { SearchInputProps } from '../interfaces/Inputs';
 
 const SearchInput: FC<SearchInputProps> = ({ onSearch }) => {
@@ -17,23 +17,21 @@ const SearchInput: FC<SearchInputProps> = ({ onSearch }) => {
 
     return (
      
-            <div className="flex items-center justify-center border-pinkDarkHover border-2 rounded-full overflow-hidden w-[30rem]max-md:w-96">
-                <button
-                    onClick={handleSearch}
-                    className=" text-white p-2 hover:bg-gray-300 transition duration-300 w-full"
-                >
-                    <img src={SearchIcon} className="w-full h-5" />
-                </button>
-                <input
-                    type="text"
-                    className="p-2 w-full max-md:w-80"
-
-                    value={searchTerm}
-                    onChange={handleChange}
-                />
-
-            </div>
-        
+       <div className="flex-grow max-w-md flex items-center justify-center border-pinkDarkHover border-2 rounded-full overflow-hidden w-[30rem] max-md:w-28">
+          <button
+            onClick={handleSearch}
+            className="text-gray-500 p-2 transition duration-300 flex items-center justify-center"
+          >
+            <img src={SearchIcon} className="w-6 h-6" alt="Search" />
+          </button>
+          <input
+            type="text"
+            className="p-2 w-full border-none focus:outline-none "
+            value={searchTerm}
+            onChange={handleChange}
+            placeholder=""
+          />
+        </div>
 
     );
 };
