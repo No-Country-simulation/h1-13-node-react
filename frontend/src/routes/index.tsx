@@ -7,7 +7,6 @@ import HomePage from "../pages/HomePage";
 
 import { PrivateLayout, PublicLayout } from "../components";
 
-
 export const router = createBrowserRouter([
   {
     element: <PublicLayout />,
@@ -24,10 +23,6 @@ export const router = createBrowserRouter([
         path: "/recoveryPassword",
         element: <RecoveryPasswordPage />,
       },
-      {
-        path: "/",
-        element: <HomePage />,
-      },
     ],
   },
   {
@@ -35,10 +30,9 @@ export const router = createBrowserRouter([
     element: <PrivateLayout />,
     children: [
       {
-        path:"/",
-        element: <HomePage />
-
-      }
-    ]
+        path: "/",
+        element: <HomePage />,
+      },
+    ],
   },
 ]);

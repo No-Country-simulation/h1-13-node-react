@@ -9,3 +9,4 @@ export * from "./CloseLogo";
 export * from "./BanLogo";
 export * from "./AlertLogo";
 export * from "./CheckLogo";
+export * from "./HomeMenuLogo";
