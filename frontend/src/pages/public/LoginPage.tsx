@@ -1,6 +1,6 @@
-import { Container, LoginForm } from "../components";
+import { Container, LoginForm } from "../../components";
 
-const LoginPage = () => {
+export const LoginPage = () => {
   return (
     <Container>
       <div
@@ -26,5 +26,3 @@ const LoginPage = () => {
     </Container>
   );
 };
-
-export default LoginPage;
