@@ -1,12 +1,12 @@
-import SearchInput from "../components/SearchInput";
-import SidebarMenu from "../components/SidebarMenu";
-import bannerinformacion from "../assets/banner1.png";
-import bell from "../assets/camp.png";
-import banner2 from "../assets/banner2.png";
-import banner3 from "../assets/banner3.png";
-import banner4 from "../assets/banner4.png";
-import bannernuevo from "../assets/bannersistemanuevo.png";
-const HomePage = () => {
+import SearchInput from "../../components/SearchInput";
+import SidebarMenu from "../../components/SidebarMenu";
+import bannerinformacion from "../../assets/banner1.png";
+import bell from "../../assets/camp.png";
+import banner2 from "../../assets/banner2.png";
+import banner3 from "../../assets/banner3.png";
+import banner4 from "../../assets/banner4.png";
+import bannernuevo from "../../assets/bannersistemanuevo.png";
+export const HomePage = () => {
   const handleSearch = (term: string) => {
     console.log("Search term:", term);
     // Lógica de búsqueda aquí
@@ -39,5 +39,3 @@ const HomePage = () => {
     </main>
   );
 };
-
-export default HomePage;

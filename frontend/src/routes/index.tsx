@@ -1,11 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import LoginPage from "../pages/LoginPage";
-import SignUpPage from "../pages/SignUpPage";
-import RecoveryPasswordPage from "../pages/RecoveryPasswordPage";
-
-import HomePage from "../pages/HomePage";
 
 import { PrivateLayout, PublicLayout } from "../components";
+import {
+  AppointmentSchedulePage,
+  ChatPage,
+  HomePage,
+  LoginPage,
+  MedicalHistoryPage,
+  ProfilePage,
+  RecoveryPasswordPage,
+  SignUpPage,
+} from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +31,27 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
     element: <PrivateLayout />,
     children: [
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/chat",
+        element: <ChatPage />,
+      },
+      {
+        path: "/medicalHistory",
+        element: <MedicalHistoryPage />,
+      },
+      {
+        path: "/appointmentSchedule",
+        element: <AppointmentSchedulePage />,
       },
     ],
   },
