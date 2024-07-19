@@ -66,7 +66,9 @@ export const useSignUpForm = () => {
                     maritalStatus: values.maritalStatus,
                     email: values.email,
                     password: values.password,
+                    client: "cliente"
                 }
+
                 await signup(requestObject);
 
                 hideLoader();
