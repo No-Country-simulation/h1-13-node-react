@@ -6,6 +6,7 @@ import banner2 from "../../assets/banner2.png";
 import banner3 from "../../assets/banner3.png";
 import banner4 from "../../assets/banner4.png";
 import bannernuevo from "../../assets/bannersistemanuevo.png";
+// import Sidebar from "../../components/Sidebar";
 export const HomePage = () => {
   const handleSearch = (term: string) => {
     console.log("Search term:", term);
@@ -14,10 +15,13 @@ export const HomePage = () => {
 
   return (
     <main className="w-full h-screen ">
-      <div className="flex items-start justify-between ">
-        <SidebarMenu></SidebarMenu>
+      <div className="flex items-start ml-[30%] justify-between max-md:ml-[15%]">
+        {/* <Sidebar /> */}
         <SearchInput onSearch={handleSearch}></SearchInput>
+        
         <img src={bell} alt="" className="w-12 max-md:w-1/12 pt-1" />
+        <SidebarMenu></SidebarMenu>
+        
       </div>
       <div className="flex items-center justify-center pt-3 ">
         <img src={bannerinformacion} alt="" className="w-9/12" />

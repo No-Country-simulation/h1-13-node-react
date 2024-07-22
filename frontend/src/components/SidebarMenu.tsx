@@ -4,6 +4,7 @@ import receta from '../assets/iconos/receta.svg';
 import salir from '../assets/iconos/salir.svg';
 import userside from '../assets/iconos/userside.svg';
 import ajustes from '../assets/iconos/ajustes.svg';
+import HamburguerIcon from '../svg/HamburguerIcon';
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,20 +13,18 @@ const SidebarMenu = () => {
   };
 
   return (
-    <div className="relative w-[10%]">
+    <div>
       {/* Botón de hamburguesa */}
       <button
         onClick={toggleMenu}
         className="p-2 focus:outline-none "
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
+      <HamburguerIcon />
       </button>
 
       {/* Menú lateral */}
       <div
-        className={`fixed inset-0 z-40 h-screen transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out bg-pinkLightside text-white w-64 p-4 `}
+        className={`fixed inset-y-0 right-0 z-40 h-screen transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out bg-pinkLightside text-white w-64 p-4 `}
       >
         <div>
           <img src={tituloside} alt="titulo" />
