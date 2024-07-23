@@ -14,3 +14,5 @@ export * from "./UserMenuLogo";
 export * from "./ChatMenuLogo";
 export * from "./MedicalHistoryMenuLogo";
 export * from "./ScheduleMenuLogo";
+export * from "./DropDownLogo";
+export * from "./TrashLogo";
