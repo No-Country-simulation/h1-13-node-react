@@ -1,6 +1,6 @@
-import { Container, SignUpForm } from "../components";
+import { Container, SignUpForm } from "../../components";
 
-const SignUpPage = () => {
+export const SignUpPage = () => {
   return (
     <section>
       <Container>
@@ -37,5 +37,3 @@ const SignUpPage = () => {
     </section>
   );
 };
-
-export default SignUpPage;

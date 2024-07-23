@@ -1,7 +1,7 @@
-import { Container } from "../components";
-import { RecoveryPasswordForm } from "../components/form/RecoveryPasswordForm";
+import { Container } from "../../components";
+import { RecoveryPasswordForm } from "../../components/form/RecoveryPasswordForm";
 
-const RecoveryPasswordPage = () => {
+export const RecoveryPasswordPage = () => {
   return (
     <section>
       <Container>
@@ -48,5 +48,3 @@ const RecoveryPasswordPage = () => {
     </section>
   );
 };
-
-export default RecoveryPasswordPage;

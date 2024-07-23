@@ -1,9 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import LoginPage from "../pages/LoginPage";
-import SignUpPage from "../pages/SignUpPage";
-import RecoveryPasswordPage from "../pages/RecoveryPasswordPage";
+
 import { PrivateLayout, PublicLayout } from "../components";
+
 import HistoryPage from "../pages/HistoryPage";
+
+import {
+  AppointmentSchedulePage,
+  ChatPage,
+  HomePage,
+  LoginPage,
+  MedicalHistoryPage,
+  ProfilePage,
+  RecoveryPasswordPage,
+  SignUpPage,
+} from "../pages";
+
 
 export const router = createBrowserRouter([
   {
@@ -21,19 +32,30 @@ export const router = createBrowserRouter([
         path: "/recoveryPassword",
         element: <RecoveryPasswordPage />,
       },
-      {
-        path:"/history",
-        element:<HistoryPage />
-      }
     ],
   },
   {
-    path: "/",
     element: <PrivateLayout />,
     children: [
       {
         path: "/",
-        element: <h1>Home</h1>,
+        element: <HomePage />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/chat",
+        element: <ChatPage />,
+      },
+      {
+        path: "/medicalHistory",
+        element: <HistoryPage />,
+      },
+      {
+        path: "/appointmentSchedule",
+        element: <AppointmentSchedulePage />,
       },
     ],
   },

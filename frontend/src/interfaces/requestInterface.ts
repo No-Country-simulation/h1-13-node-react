@@ -1,8 +1,7 @@
 export interface LoginRequestI {
     user: string;
     password: string;
-};
-
+}
 export interface SignupRequestI {
     firstName: string,
     lastName: string,

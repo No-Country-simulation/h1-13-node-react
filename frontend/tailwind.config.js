@@ -17,7 +17,10 @@ export default {
         pinkDarkHover: "rgba(210, 43, 139, 0.8)",
         red: "#d0342c",
         green: "#198754",
-        yellow: "#ffd151"
+        yellow: "#ffd151",
+        lightBlue: "#02ADDE",
+        pinkLightside: "#FEEBC4",
+        pinkLightsideitem: "#FFE5B0"
       },
       backgroundImage: {
         pattern: "url('https://justina.vr4it.com/img/pattern.webp')",
