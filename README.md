@@ -61,36 +61,51 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Justina.io <a name="about-project"></a>
 
 > Describe your project in 1 or 2 sentences.
 
-**[your_project__name]** is a...
+**Justina.io** is a platform that ensures the easiest interactions between patients and doctors, 
+it helps to keep track of medical history, and follow up treatment adherence.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+> Bellow you'll find link to docs of the tools, libraries or frameworks we have used to build this project.
 
 <details>
   <summary>Client</summary>
   <ul>
+    <li><a href="https://vitejs.dev/">Vite</a></li>
+    <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
     <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://tailwindcss.com/">Tailwind-css</a></li>
+    <li><a href="https://zustand-demo.pmnd.rs/">Zustand</a></li>
+    <li><a href="https://formik.org/">Formik</a></li>
+    <li><a href="https://github.com/jquense/yup">Yup</a></li>
+    <li><a href="https://axios-http.com/">Axios</a></li>
+    
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
+    <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
     <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://www.prisma.io/">Prisma</a></li>
+    <li><a href="https://expressjs.com/">Bcrypt.js</a></li>
+    <li><a href="https://github.com/motdotla/dotenv#readme">Dotenv</a></li>
+    <li><a href="https://github.com/evanshortiss/env-var#env-var"><a>Env-var</li>
+    <li><a href="https://github.com/auth0/node-jsonwebtoken#readme">Jsonwebtoken</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://dev.mysql.com/">MySQL</a></li>
   </ul>
 </details>
 
@@ -98,11 +113,10 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> Key feature Implemented in this project:
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Patient Dashboard**
+- **Patient Appointment Schedule**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,7 +124,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Live demo will be ready to be used soon!
 
 - [Live Demo Link](https://google.com)
 
@@ -217,6 +231,13 @@ Example:
 - GitHub: [@githubhandle](https://github.com/githubhandle)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+
+👤 **Diego Vidal**
+
+- GitHub: [@Diegogagan2587](https://github.com/Diegogagan2587)
+- X (Former Twitter): [@dieg02587](https://x.com/dieg02587)
+- LinkedIn: [Diego Vidal](https://www.linkedin.com/in/diego-vidal-lopez/)
+- Portfolio: [dvloper-z.com](https://dvloper-z.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
