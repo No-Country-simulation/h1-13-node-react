@@ -9,3 +9,8 @@ export * from "./CloseLogo";
 export * from "./BanLogo";
 export * from "./AlertLogo";
 export * from "./CheckLogo";
+export * from "./HomeMenuLogo";
+export * from "./UserMenuLogo";
+export * from "./ChatMenuLogo";
+export * from "./MedicalHistoryMenuLogo";
+export * from "./ScheduleMenuLogo";
