@@ -3,6 +3,7 @@ import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import RecoveryPasswordPage from "../pages/RecoveryPasswordPage";
 import { PrivateLayout, PublicLayout } from "../components";
+import HistoryPage from "../pages/HistoryPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         path: "/recoveryPassword",
         element: <RecoveryPasswordPage />,
       },
+      {
+        path:"/history",
+        element:<HistoryPage />
+      }
     ],
   },
   {
