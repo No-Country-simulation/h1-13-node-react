@@ -16,11 +16,11 @@ export const HomePage = () => {
   return (
     <main className="w-full h-screen ">
       <div className="flex items-start ml-[30%] justify-between max-md:ml-[15%]">
-        {/* <Sidebar /> */}
+       
         <SearchInput onSearch={handleSearch}></SearchInput>
         
         <img src={bell} alt="" className="w-12 max-md:w-1/12 pt-1" />
-        <SidebarMenu></SidebarMenu>
+        <SidebarMenu />
         
       </div>
       <div className="flex items-center justify-center pt-3 ">

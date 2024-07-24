@@ -7,7 +7,7 @@ import ajustes from '../assets/iconos/ajustes.svg';
 import HamburguerIcon from '../svg/HamburguerIcon';
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isDoctor, setIsDoctor] = useState(false)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -19,7 +19,7 @@ const SidebarMenu = () => {
         onClick={toggleMenu}
         className="p-2 focus:outline-none "
       >
-      <HamburguerIcon />
+        <HamburguerIcon />
       </button>
 
       {/* Menú lateral */}
@@ -38,12 +38,36 @@ const SidebarMenu = () => {
           </svg>
         </button>
         <nav className="mt-10 pt-5 space-y-3 max-md:mt-5">
-          <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
-            Pacientes <img src={userside} />
-          </a>
-          <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
-            Turnos <img src={receta} />
-          </a>
+          {
+            isDoctor ? (
+              <>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Pacientes <img src={userside} />
+                </a>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Turnos <img src={receta} />
+                </a>
+              </>
+
+            ) : 
+            (
+              <>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Prepaga <img src={userside} />
+                </a>
+                <h2 className="text-black">TRATAMIENTO</h2>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Medicación <img src={userside} />
+                </a>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Nutrición <img src={userside} />
+                </a>
+                <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">
+                  Actividad Física <img src={userside} />
+                </a>
+              </>
+            )
+          }
         </nav>
         <div className='mt-5 pt-80 space-y-3 max-md:mt-1'>
           <a href="#" className="py-2.5 px-4 text-black bg-orange-200 rounded transition duration-200 flex items-center justify-between max-md:text-sm">Configuración <img src={ajustes} /></a>
