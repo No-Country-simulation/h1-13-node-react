@@ -4,7 +4,7 @@ import receta from '../assets/iconos/receta.svg';
 import salir from '../assets/iconos/salir.svg';
 import userside from '../assets/iconos/userside.svg';
 import ajustes from '../assets/iconos/ajustes.svg';
-import HamburguerIcon from '../svg/HamburguerIcon';
+import {HamburguerIcon} from '../svg/HamburguerIcon';
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDoctor, setIsDoctor] = useState(false)
