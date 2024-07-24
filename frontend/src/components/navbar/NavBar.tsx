@@ -56,7 +56,7 @@ export const NavBar = () => {
         <HamburguerIcon />
       </button>
       <nav
-        className={`fixed left-0 top-0 h-screen transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out bg-lightBlue rounded-lg flex flex-col space-y-4 p-4 w-28 z-30 max-md:w-16`}
+        className="fixed bottom-0 w-full bg-lightBlue p-4 z-30 flex justify-center items-center h-8 space-x-8 max-md:w-full"
       >
         {navLinkFields.map((linkField) => (
           <NavLink
