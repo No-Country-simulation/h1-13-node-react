@@ -6,3 +6,4 @@ export * from "./private/ProfilePage";
 export * from "./private/ChatPage";
 export * from "./private/MedicalHistoryPage";
 export * from "./private/AppointmentSchedulePage"
+export * from "./private/AppointmentScheduleDoctorPage"

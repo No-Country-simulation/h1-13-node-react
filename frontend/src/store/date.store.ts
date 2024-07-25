@@ -2,9 +2,8 @@ import { create } from "zustand";
 
 interface AppointmentData {
     date: Date;
-    time: string;
-    medicalSubject: string;
-    address: string;
+    content1: string | null;
+    content2: string | null;
 }
 
 interface DateStateI {

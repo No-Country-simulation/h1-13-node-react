@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { PrivateLayout, PublicLayout } from "../components";
 import {
+  AppointmentScheduleDoctorPage,
   AppointmentSchedulePage,
   ChatPage,
   HomePage,
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: "/appointmentSchedule",
         element: <AppointmentSchedulePage />,
+      },
+      {
+        path: "/doctor/appointmentSchedule",
+        element: <AppointmentScheduleDoctorPage />,
       },
     ],
   },

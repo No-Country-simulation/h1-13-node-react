@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDateStore } from "../../store/date.store";
 import { AppointmentCardList, Schedule, ViewLoader } from "../../components";
-import { getMonthNumber, getYear } from "../../utils/dateUtils";
+import { compareDates, getMonthNumber, getYear } from "../../utils/dateUtils";
 
 const testData = [
   {
     date: new Date(2024, 6, 24),
-    time: "09:00",
-    medicalSubject: "Extracción de sangre.",
-    address: "Hospital Sagrado corazón ( Bleur 1202).",
+    content1: "09:00 | Extracción de sangre.",
+    content2: "Hospital Sagrado corazón ( Bleur 1202).",
   },
   {
     date: new Date(2024, 6, 24),
-    time: "09:35",
-    medicalSubject: "Turno clínico.",
-    address: "Hospital Sagrado corazón ( Bleur 1202)",
+    content1: "09:35 | Turno clínico.",
+    content2: "Hospital Sagrado corazón ( Bleur 1202)",
   },
 ];
 
@@ -32,13 +30,14 @@ export const AppointmentSchedulePage = () => {
       ];
       setDayIndices(dayIndices);
 
-      if (daySelected.getTime() === new Date(2024, 6, 24).getTime()) {
+      if (compareDates(daySelected, new Date(2024, 6, 24))) {
         setAppointments(testData);
       } else {
         setAppointments([]);
       }
     } else {
       setDayIndices([]);
+      setAppointments([]);
     }
   }, [daySelected]);
 
@@ -53,7 +52,13 @@ export const AppointmentSchedulePage = () => {
                  overflow-hidden"
     >
       {!isLoaded && <ViewLoader />}
-      <div className="w-full min-h-[252px] h-[64.2857vw] bg-[#D9D9D9] relative">
+      <div
+        className="w-full
+                   min-h-[252px]
+                   h-[64.2857vw]
+                   bg-[#D9D9D9]
+                   relative"
+      >
         <img
           src="https://res.cloudinary.com/djarwlymo/image/upload/v1721357936/38562603-fa3e-4b8a-b636-dc417a4e314a.png"
           onLoad={() => setIsLoaded(true)}
