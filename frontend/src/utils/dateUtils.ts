@@ -115,3 +115,21 @@ export const getMonthNumber = (date: Date): number => {
 export const getYear = (date: Date): number => {
     return date.getFullYear();
 };
+
+export const compareDates = (date1: Date, date2: Date): boolean => {
+    const getDateOnly = (date: Date) => {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    };
+
+    return getDateOnly(date1).getTime() === getDateOnly(date2).getTime();
+};
+
+export const getDayOfWeek = (day: string, month: number, year: number): string => {
+    const dayNumber = parseInt(day, 10);
+
+    const date = new Date(year, month, dayNumber);
+
+    const dayOfWeekIndex = (date.getDay() + 6) % 7;
+
+    return daysOfWeek[dayOfWeekIndex];
+}
