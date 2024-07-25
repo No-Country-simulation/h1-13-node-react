@@ -49,12 +49,6 @@ export const NavBar = () => {
 
   return (
     <div className="relative">
-      <button
-        onClick={toggleMenu}
-        className="p-2 focus:outline-none fixed z-40 top-2 left-2"
-      >
-        <HamburguerIcon />
-      </button>
       <nav
         className="fixed bottom-0 w-full bg-lightBlue p-4 z-30 flex justify-center items-center h-8 space-x-8 max-md:w-full"
       >

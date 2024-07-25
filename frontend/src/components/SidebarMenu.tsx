@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import tituloside from '../assets/titlepng 1.png';
-import receta from '../assets/iconos/receta.svg';
-import salir from '../assets/iconos/salir.svg';
-import userside from '../assets/iconos/userside.svg';
-import ajustes from '../assets/iconos/ajustes.svg';
+import receta from '../assets/icons/receta.svg';
+import salir from '../assets/icons/salir.svg';
+import userside from '../assets/icons/userside.svg';
+import ajustes from '../assets/icons/ajustes.svg';
 import HamburguerIcon from '../svg/HamburguerIcon';
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

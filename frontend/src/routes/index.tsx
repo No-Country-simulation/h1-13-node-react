@@ -11,6 +11,7 @@ import {
   RecoveryPasswordPage,
   SignUpPage,
 } from "../pages";
+import PatientListPage from "../pages/public/PatientListPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         path: "/recoveryPassword",
         element: <RecoveryPasswordPage />,
       },
+      {
+        path: "/patient-list",
+        element:<PatientListPage />
+      }
     ],
   },
   {

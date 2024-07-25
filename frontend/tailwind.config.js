@@ -19,6 +19,7 @@ export default {
         green: "#198754",
         yellow: "#ffd151",
         lightBlue: "#02ADDE",
+        lightBlueLoadButton: "#A1DCF4",
         pinkLightside: "#FEEBC4",
         pinkLightsideitem: "#FFE5B0"
       },
