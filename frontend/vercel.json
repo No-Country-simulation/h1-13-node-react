@@ -1,0 +1,7 @@
+{
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" },
+    {
+        "source": "/images/:slug*",
+        "destination": "https://res.cloudinary.com/djarwlymo/image/upload/:slug*"
+      }]
+}
