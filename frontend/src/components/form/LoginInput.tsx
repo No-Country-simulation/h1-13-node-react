@@ -9,6 +9,7 @@ type InputProps = {
   placeholder: string;
   type: "text" | "password";
   label?: string;
+  errorMessage: string | null;
 };
 
 export const LoginInput: React.FC<InputProps> = ({
@@ -19,6 +20,7 @@ export const LoginInput: React.FC<InputProps> = ({
   placeholder,
   type,
   label,
+  errorMessage,
 }) => {
   const [isPasswordVisible, setisPasswordVisible] = useState(false);
 
@@ -59,7 +61,7 @@ export const LoginInput: React.FC<InputProps> = ({
           </div>
         )}
         <input
-        name={name}
+          name={name}
           value={value}
           onChange={handleChange}
           type={inputType}
@@ -99,6 +101,17 @@ export const LoginInput: React.FC<InputProps> = ({
           </div>
         )}
       </div>
+      {errorMessage && (
+        <div
+          className="w-full
+                     text-red
+                     text-sm h-6
+                     py-1
+                     translate-x-2"
+        >
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };

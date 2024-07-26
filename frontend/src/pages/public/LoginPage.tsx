@@ -1,12 +1,6 @@
-import { Container, LoginForm } from "../components";
-import { useAuthStore } from "../store/auth.store";
+import { Container, LoginForm } from "../../components";
 
-const LoginPage = () => {
-
-  const loading = useAuthStore((state) => state.loading);
-
-  if(loading) return <h1>Loading...</h1>;
-
+export const LoginPage = () => {
   return (
     <Container>
       <div
@@ -32,5 +26,3 @@ const LoginPage = () => {
     </Container>
   );
 };
-
-export default LoginPage;

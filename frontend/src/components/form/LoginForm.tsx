@@ -1,38 +1,9 @@
-
+import { useLoginForm } from "../../hooks/useLoginForm";
 import { LockIcon, UserIcon } from "../../svg";
 import { LoginInput } from "./LoginInput";
-import { useFormik } from "formik";
-import * as Yup from 'yup';
 
-export const LoginForm = () => { 
-
-  const formik = useFormik({
-    initialValues: {
-      user: '',
-      password: '',
-    },
-    validationSchema: Yup.object({
-      user: Yup.string().required('No ha ingresado su usuario, por favor ingrese su usuario'),
-      password: Yup.string().required('No ha ingresado su contraseña, por favor ingrese su contraseña'),
-    }),
-    onSubmit: async (values) => {
-      try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
-        console.log('Success:', data);
-        // Manejar el éxito de la solicitud
-      } catch (error) {
-        console.error('Error:', error);
-        // Manejar el error de la solicitud
-      }
-    },
-  });
+export const LoginForm = () => {
+  const { formik } = useLoginForm();
 
   return (
     <form
@@ -48,17 +19,19 @@ export const LoginForm = () => {
                    lg:gap-y-[13px]
                    items-end"
       >
-        <LoginInput 
-          handleChange={formik.handleChange} 
-          name="user" 
-          value={formik.values.user} 
-          type={"text"} 
-          icon={UserIcon} 
+        <LoginInput
+          handleChange={formik.handleChange}
+          name="user"
+          value={formik.values.user}
+          type={"text"}
+          icon={UserIcon}
           placeholder="Usuario"
+          errorMessage={
+            formik.touched.user && formik.errors.user
+              ? formik.errors.user
+              : null
+          }
         />
-        {formik.touched.user && formik.errors.user ? (
-          <div className="text-red-500">{formik.errors.user}</div>
-        ) : null}
         <LoginInput
           handleChange={formik.handleChange}
           name="password"
@@ -66,10 +39,12 @@ export const LoginForm = () => {
           type={"password"}
           icon={LockIcon}
           placeholder="Contraseña"
+          errorMessage={
+            formik.touched.password && formik.errors.password
+              ? formik.errors.password
+              : null
+          }
         />
-        {formik.touched.password && formik.errors.password ? (
-          <div className="text-red-500">{formik.errors.password}</div>
-        ) : null}
       </div>
       <div
         className="flex relative

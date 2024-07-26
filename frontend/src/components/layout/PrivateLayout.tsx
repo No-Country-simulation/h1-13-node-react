@@ -1,20 +1,26 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/auth.store";
 import { useEffect } from "react";
+import { ACCESS_TOKEN } from "../../constants";
+import { NavBar } from "../navbar/NavBar";
 
 export const PrivateLayout = () => {
-    const token = useAuthStore((state) => state.token);
-    const navigate = useNavigate();
+  const token = localStorage.getItem(ACCESS_TOKEN);
+  const setToken = useAuthStore((state) => state.setToken);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (token) {
+      setToken(token);
+    } else {
+      navigate("/login");
+    }
+  }, [token]);
 
-    useEffect(() => {
-        //si es no tá el token
-        if(!token) 
-        //redirigir a "/login" 
-        navigate("/login");
-
-
-    },[token])
-
-    return <Outlet />
-}
+  return (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  );
+};
