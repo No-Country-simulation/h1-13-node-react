@@ -2,14 +2,14 @@ import { useState } from "react";
 import { ClosedEyeIcon, OpenEyeIcon } from "../../svg";
 
 type InputProps = {
-  name: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  name?: string;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   icon?: React.ComponentType;
-  placeholder: string;
-  type: "text" | "password";
+  placeholder?: string;
+  type?: "text" | "password";
   label?: string;
-  errorMessage: string | null;
+  errorMessage?: string | null;
 };
 
 export const Input: React.FC<InputProps> = ({

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { MenuOptions } from "../../enums/NavigationBar.enum";
 import { useNavigationBar } from "../../hooks/useNavigationBar";
 import {
@@ -9,7 +8,6 @@ import {
   UserMenuLogo,
 } from "../../svg";
 import { NavLink } from "./NavLink";
-import HamburguerIcon from "../../svg/HamburguerIcon";
 
 const navLinkFields = [
   {
@@ -41,17 +39,10 @@ const navLinkFields = [
 
 export const NavBar = () => {
   const { menuOptions, setMenuOptions } = useNavigationBar();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div className="relative">
-      <nav
-        className="fixed bottom-0 w-full bg-lightBlue p-4 z-30 flex justify-center items-center h-8 space-x-8 max-md:w-full"
-      >
+      <nav className="fixed bottom-0 w-full bg-lightBlue p-4 z-30 flex justify-center items-center h-8 space-x-8 max-md:w-full">
         {navLinkFields.map((linkField) => (
           <NavLink
             key={linkField.to}
@@ -60,11 +51,9 @@ export const NavBar = () => {
             menuOptions={menuOptions}
             setMenuOptions={setMenuOptions}
             menuOption={linkField.menuOption}
-
           />
         ))}
       </nav>
     </div>
-
   );
 };
