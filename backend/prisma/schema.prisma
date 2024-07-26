@@ -29,10 +29,26 @@ model User {
   maritalStatus String
   email       String   @unique
   password    String
-  roles String
+  roles   Role[] 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   @@map("users")
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[]
+}
+
+model Appointment {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  doctorId    Int
+  hospitalId  Int
+  specialty   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 

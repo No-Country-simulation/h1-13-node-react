@@ -1,15 +1,15 @@
 import { Response, Request } from 'express';
-import { CreateProductDto, CustomError, PaginationDto } from '../../domain';
-import { ProductService } from '../services/product.service';
+import { CreateAppointmentDto, CustomError, PaginationDto } from '../../domain';
+import { AppointmentService } from '../services/appointment.service';
 
 
 
 
-export class ProductController {
+export class AppointmentController {
 
   // DI
   constructor(
-    private readonly productService: ProductService,
+    private readonly AppointmentService: AppointmentService,
   ) { }
 
 
@@ -23,39 +23,39 @@ export class ProductController {
   };
 
 
-  createProduct = ( req: Request, res: Response ) => {
+  createAppointment = ( req: Request, res: Response ) => {
 
-    const [ error, createProductDto ] = CreateProductDto.create({ 
+    const [ error, createProductDto ] = CreateAppointmentDto.create({ 
       ...req.body,
       user: req.body.user.id,
     });
     if ( error ) return res.status( 400 ).json( { error } );
 
 
-    this.productService.createProduct( createProductDto! )
+    this.AppointmentService.createAppointment( createProductDto! )
       .then( category => res.status( 201 ).json( category ) )
       .catch( error => this.handleError( error, res ) );
 
   };
 
-  getProducts = async ( req: Request, res: Response ) => {
+  getAppointment = async ( req: Request, res: Response ) => {
 
     const { page = 1, limit = 10 } = req.query;
     const [ error, paginationDto ] = PaginationDto.create( +page, +limit );
     if ( error ) return res.status(400).json({ error });
 
     
-    this.productService.getProducts( paginationDto! )
+    this.AppointmentService.getAllAppointments()
       .then( products => res.json( products ))
       .catch( error => this.handleError( error, res ) );
 
   };
 
-  deleteProduct = (req: Request, res: Response) => {
-  const productId = Number(req.params.id);
-  if (!productId) return res.status(400).json({ error: 'Invalid product id' });
+  deleteAppointment = (req: Request, res: Response) => {
+  const appointmentId = Number(req.params.id);
+  if (!appointmentId) return res.status(400).json({ error: 'Invalid product id' });
 
-  this.productService.deleteProduct(productId)
+  this.AppointmentService.deleteAppointment(appointmentId)
     .then(response => res.json(response))
     .catch(error => this.handleError(error, res));
 };

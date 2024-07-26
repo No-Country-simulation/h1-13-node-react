@@ -9,7 +9,7 @@ export class UserMapper {
     if (!lastName) throw CustomError.badRequest('Missing last name');
     if (!email) throw CustomError.badRequest('Missing email');
     if (!password) throw CustomError.badRequest('Missing password');
-    if (!roles) throw CustomError.badRequest('Missing roles');
+    //if (!roles) throw CustomError.badRequest('Missing roles');
 
     const numericId = id && typeof id === 'string' ? Number(id) : id;
 

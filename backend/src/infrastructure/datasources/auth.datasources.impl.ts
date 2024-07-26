@@ -43,8 +43,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
     specialty, 
     maritalStatus, 
     email,
-    password,
-    roles
+    password
   } = registerUserDto;
 
   try {
@@ -62,7 +61,6 @@ export class AuthDatasourceImpl implements AuthDatasource {
         maritalStatus,
         email,
         password: this.hashPassword(password),
-        roles
       },
     });
 
