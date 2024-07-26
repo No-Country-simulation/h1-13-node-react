@@ -1,6 +1,6 @@
 .env
 node_modules
 logs/
-postgres/
+
 dist/
 build/
