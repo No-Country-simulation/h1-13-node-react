@@ -17,11 +17,11 @@ export const useLoginForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      user: "",
+      email: "",
       password: "",
     },
     validationSchema: Yup.object({
-      user: Yup.string().required(
+      email: Yup.string().required(
         "No ha ingresado su usuario, por favor ingrese su usuario"
       ),
       password: Yup.string().required(

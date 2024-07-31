@@ -21,14 +21,14 @@ export const LoginForm = () => {
       >
         <LoginInput
           handleChange={formik.handleChange}
-          name="user"
-          value={formik.values.user}
+          name="email"
+          value={formik.values.email}
           type={"text"}
           icon={UserIcon}
           placeholder="Usuario"
           errorMessage={
-            formik.touched.user && formik.errors.user
-              ? formik.errors.user
+            formik.touched.email && formik.errors.email
+              ? formik.errors.email
               : null
           }
         />
